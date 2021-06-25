@@ -1,0 +1,28 @@
+<main>
+    <div id="news">
+        <div id="news-block">
+            <div id="img-block">
+                <img src={{news.img}} alt="" id="image-news">
+            </div>
+            <h2 id="news-title">{{news.title}}</h2>
+            <p id="news-text">{{news.text}}</p>
+        </div>
+        <div id="comments-block">
+            <h3>Comments</h3>
+            <hr>
+            {{#each comments}}
+                <div>
+                    <h5>{{userId.name}}:</h5>
+                    <p>{{text}}</p>
+                    <hr>
+                </div>
+            {{/each}}
+            <form action="/news/{{news._id}}/comment" method="POST">
+                <div>
+                    <input type="text" name="text">
+                    <input type="hidden" name="userId" value="60d44212fd688a3e94892bdd">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

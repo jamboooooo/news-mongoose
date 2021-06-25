@@ -1,0 +1,22 @@
+
+<main>
+    <div id="news">
+        {{#each categoryItem}}
+        {{#each allNews}}
+        <div id="news-block">
+            <a href="/news/{{_id}}">
+                <div id="img-block">
+                    <img src={{img}} alt="" id="image-news">
+                </div>
+            </a>
+            <h2 id="news-title">{{title}}</h2>
+            <p id="news-text">{{text}}</p>
+        </div>
+        {{/each}}
+        <div id="comments-block">
+
+        </div>
+        {{/each}}
+    </div>
+    
+</main>

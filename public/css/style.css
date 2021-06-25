@@ -1,0 +1,13 @@
+img {
+    width: 500px
+}
+
+#news {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#comments-block h3 {
+    text-align: left;
+}

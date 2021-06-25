@@ -1,0 +1,15 @@
+<main>
+    <div id="news">
+        <div id="news-block">
+            {{#each news}}
+                <a href="/news/{{_id}}">
+                    <div id="img-block">
+                        <img src={{img}} alt="" id="image-news">
+                    </div>
+                </a>
+                <h2 id="news-title">{{title}}</h2>
+                <p id="news-text">{{text}}</p>
+            {{/each}}
+        </div>
+    </div>
+</main>
