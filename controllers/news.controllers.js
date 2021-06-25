@@ -37,8 +37,7 @@ const addNews = async(req, res) => {
 }
 
 const deleteNews = async(req, res) => {
-    const news = await New.findById(req.params.id)
-    news.delete()
+    const news = await New.findByIdAndDelete(req.params.id)
     res.json('success deleted news')
 }
 

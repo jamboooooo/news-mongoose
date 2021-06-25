@@ -35,12 +35,10 @@ const addCategory = async(req, res) => {
 
 const deleteCategory = async(req, res) => {
     try {
-        const category = await Category.findById(req.params.id)
-        category.delete()
+        const category = await Category.findByIdAndDelete(req.params.id)
         res.json('success delete')
     } catch (e) {
         console.log(e.message)
-
     }
 
 }

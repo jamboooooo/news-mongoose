@@ -4,14 +4,14 @@ const {
     addCategory,
     deleteCategory,
     changeCategory
-} = require('./categories')
+} = require('./categories.controllers')
 
 const {
     getCommentByNews,
     addCommentInNews,
     deleteComment,
     changeComment
-} = require('./comments')
+} = require('./comments.controllers')
 
 const {
     getNewById,
@@ -20,9 +20,9 @@ const {
     deleteNews,
     changeNews,
     getAllNews
-} = require('./news')
+} = require('./news.controllers')
 
-const addUser = require('./users')
+const addUser = require('./users.controllers')
 
 module.exports = {
     getAllCategory,

@@ -17,8 +17,7 @@ const addCommentInNews = async(req, res) => {
 }
 
 const deleteComment = async(req, res) => {
-    const comment = await Comment.findById(req.params.id)
-    comment.delete()
+    const comment = await Comment.findByIdAndDelete(req.params.id)
     res.json('success deleted')
 }
 
