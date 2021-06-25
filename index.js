@@ -1,5 +1,6 @@
 const express = require('express')
 const hbs = require('express-handlebars')
+const upload = require('express-fileupload')
 const mongoose = require('mongoose')
 const path = require('path')
 const cors = require('cors')
@@ -29,6 +30,7 @@ start()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.resolve(__dirname, 'public')))
+app.use(upload())
 app.use(require('./routes/index'))
 
 app.listen(PORT, () => {

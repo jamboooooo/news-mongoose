@@ -19,7 +19,8 @@ const {
     addNews,
     deleteNews,
     changeNews,
-    getAllNews
+    getAllNews,
+    addImageFromNews
 } = require('./news.controllers')
 
 const addUser = require('./users.controllers')
@@ -40,5 +41,6 @@ module.exports = {
     deleteNews,
     changeNews,
     addUser,
-    getAllNews
+    getAllNews,
+    addImageFromNews
 }

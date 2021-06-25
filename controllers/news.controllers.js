@@ -1,5 +1,7 @@
 const New = require('../models/New')
 const Comment = require('../models/Comment')
+const path = require('path')
+const { patch } = require('../routes')
 
 const getAllNews = async(req, res) => {
     const news = await New.find()
@@ -21,7 +23,6 @@ const getNewById = async(req, res) => {
 
 const getNewsByCAtegory = async(req, res) => {
     const news = await New.find({ categoryId: req.params.id }).lean()
-    console.log(news);
     res.render('cat-news', { news })
 }
 
@@ -47,11 +48,31 @@ const changeNews = async(req, res) => {
     res.json('success changed news')
 }
 
+const addImageFromNews = async(req, res) => {
+    const news = await New.findById(req.params.id)
+    const pathFromPublic = path.resolve(__dirname, '../public')
+    if (req.files) {
+        let file = req.files.img
+        let filename = file.name
+        console.log(filename);
+        file.mv(path.resolve(pathFromPublic, 'uploads', filename), err => {
+            if (err) {
+                res.json(err);
+            } else {
+                news.img = '/uploads/' + filename
+                news.save()
+                res.json('File uploaded')
+            }
+        })
+    }
+}
+
 module.exports = {
     getNewById,
     getNewsByCAtegory,
     addNews,
     deleteNews,
     changeNews,
-    getAllNews
+    getAllNews,
+    addImageFromNews
 }
